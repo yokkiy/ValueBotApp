@@ -54,6 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'line-bot-api'
+gem 'nokogiri'
 
 # 開発・テスト環境ではSQLite3を使う
 group :development, :test do

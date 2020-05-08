@@ -1,6 +1,7 @@
 class LinebotController < ApplicationController
   require 'line/bot'  # gem 'line-bot-api'
   require "source/scraping.rb"
+
   # callbackアクションのCSRFトークン認証を無効
   protect_from_forgery :except => [:callback]
 
@@ -30,7 +31,7 @@ class LinebotController < ApplicationController
             type: 'text',
             text: event.message['text']
           }
-          client.reply_message(event['replyToken'], message)
+          client.reply_message(event['replyToken'], result)
         end
       end
     }

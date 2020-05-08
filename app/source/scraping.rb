@@ -1,5 +1,4 @@
-def Scraping
-  #webに接続するためのライブラリ
+#webに接続するためのライブラリ
   require "open-uri"
   #クレイピングに使用するライブラリ
   require "nokogiri"
@@ -12,15 +11,15 @@ def Scraping
 
   doc = Nokogiri::HTML(open(url, opt))
 
+  result = nil
+
   while true do
     results = []
 
     doc.xpath('//div[@class="a-text-center a-spacing-mini"]').each do |node|
       result = node.css('span').inner_text
       results << result
-    end
-
-    result = nil
+    end    
 
     results.each do |list|
       if list != nil then
@@ -35,8 +34,5 @@ def Scraping
 
     result = result.to_i
 
-    return result
-
     sleep(60)
   end
-end
