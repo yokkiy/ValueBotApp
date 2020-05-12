@@ -62,7 +62,7 @@ class LinebotController < ApplicationController
          sleep(60)
     end
 
-    events = scraping
+    events = scraping()
 
     events.each { |event|
       case event
