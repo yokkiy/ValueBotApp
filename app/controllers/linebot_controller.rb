@@ -61,24 +61,21 @@ class LinebotController < ApplicationController
          return result
     end
 
-    #events = client.parse_events_from(body)
-    while true do
-            client.reply_message(event['replyToken'], scraping)
-            sleep(60)
-    end
-    #events.each { |event|
-  #    case event
-  #    when Line::Bot::Event::Message
-  #      case event.type
-  #      when Line::Bot::Event::MessageType::Text
-  #        message = {
-  #          type: 'text',
-  #          text: event.message['text']
-  #        }
-  #        client.reply_message(event['replyToken'], message)
-  #      end
-  #    end
-  #}
+    events = client.parse_events_from(body)
+
+    events.each { |event|
+      case event
+      when Line::Bot::Event::Message
+        case event.type
+        when Line::Bot::Event::MessageType::Text
+          message = {
+            type: 'text',
+            text: event.message['text']
+          }
+          client.reply_message(event['replyToken'], scraping)
+        end
+      end
+  }
 
     head :ok
   end
