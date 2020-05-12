@@ -59,6 +59,7 @@ class LinebotController < ApplicationController
         result = result.delete(",")
 
          return result
+         sleep(60)
     end
 
     events = scraping
