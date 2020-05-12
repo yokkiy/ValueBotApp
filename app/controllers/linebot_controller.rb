@@ -61,7 +61,7 @@ class LinebotController < ApplicationController
          return result
     end
 
-    events = client.parse_events_from(body)
+    events = scraping
 
     events.each { |event|
       case event
@@ -72,7 +72,7 @@ class LinebotController < ApplicationController
             type: 'text',
             text: event.message['text']
           }
-          client.reply_message(event['replyToken'], scraping)
+          client.reply_message(event['replyToken'], message)
         end
       end
   }
