@@ -76,7 +76,8 @@ class LinebotController < ApplicationController
           end
         end
 
-        current = "現在の価格："
+        current = "現在の価格：
+        "
         link = "商品リンク"
         #results = []
         #results << result
@@ -84,6 +85,15 @@ class LinebotController < ApplicationController
          #return result.encode("sjis") + "\r\n" + value.encode("sjis") + "\r\n商品ページ" + url
          return result.encode("sjis") + "\r\n\r\n" + current.encode("sjis") + value.encode("sjis") + "\r\n\r\n" + link.encode("sjis") + "\r\n" + url.encode("sjis")
          #return result
+    end
+
+    while true do
+      message = {
+        type: 'text',
+        text: scraping()
+      }
+    response = client.push_message(ENV["LINE_USER_ID"], message)  
+    sleep(60)
     end
 
     events = client.parse_events_from(body)
