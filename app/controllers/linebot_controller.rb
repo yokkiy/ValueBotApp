@@ -78,7 +78,7 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: scraping() + scraping()
+            text: scraping() + "\r\n" + scraping()
           }
           client.reply_message(event['replyToken'], message)
         end
