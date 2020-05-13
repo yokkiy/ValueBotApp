@@ -70,8 +70,8 @@ class LinebotController < ApplicationController
           if list != nil then
             if list.include?("￥") then
               value = list
-              value = result.delete("￥")
-              value = result.delete(",")
+              value = value.delete("￥")
+              value = value.delete(",")
             end
           end
         end
