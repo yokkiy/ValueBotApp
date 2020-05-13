@@ -37,18 +37,18 @@ class LinebotController < ApplicationController
 
       doc = Nokogiri::HTML(open(url, opt))
 
-      result = nil
+      result = "値段が表示されていません。"
 
         results = []
-        #doc.xpath('//span[contains(@id, "priceblock_ourprice")]').each do |node|
-          #result = node.css('span').inner_text
-        #  result = node.xpath('//span[contains(@class, "a-size-medium a-color-price priceBlockBuyingPriceString")]').text
-        #  results << result
-        #end
-        doc.xpath('//div[@class="a-text-center a-spacing-mini"]').each do |node|
+        doc.xpath('//span[contains(@id, "priceblock_ourprice")]').each do |node|
           result = node.css('span').inner_text
+          result = node.xpath('//span[contains(@class, "a-size-medium a-color-price priceBlockBuyingPriceString")]').text
           results << result
         end
+        #doc.xpath('//div[@class="a-text-center a-spacing-mini"]').each do |node|
+        #  result = node.css('span').inner_text
+        #  results << result
+        #end
 
 
 
