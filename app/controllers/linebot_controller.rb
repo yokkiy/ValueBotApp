@@ -87,14 +87,14 @@ class LinebotController < ApplicationController
          #return result
     end
 
-    while true do
-      message = {
-        type: 'text',
-        text: scraping()
-      }
-    response = client.push_message(ENV["LINE_USER_ID"], message)  
-    sleep(60)
-    end
+    #while true do
+    #  message = {
+    #    type: 'text',
+    #    text: scraping()
+    #  }
+    #response = client.push_message(ENV["LINE_USER_ID"], message)
+    #sleep(60)
+    #end
 
     events = client.parse_events_from(body)
 
