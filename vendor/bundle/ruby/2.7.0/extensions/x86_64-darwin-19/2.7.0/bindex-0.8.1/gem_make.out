@@ -1,0 +1,15 @@
+current directory: /Users/nishio/workspace/ValueBotApp/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/nishio/.rbenv/versions/2.7.0/bin/ruby -I /Users/nishio/.rbenv/versions/2.7.0/lib/ruby/2.7.0 -r ./siteconf20200508-39826-12sejq4.rb extconf.rb
+creating Makefile
+
+current directory: /Users/nishio/workspace/ValueBotApp/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/nishio/workspace/ValueBotApp/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/nishio/workspace/ValueBotApp/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20200508-39826-lc2os8/skiptrace/internal
