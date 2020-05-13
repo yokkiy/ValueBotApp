@@ -76,13 +76,13 @@ class LinebotController < ApplicationController
           end
         end
 
-        current = "現在の価格"
+        current = "現在の価格："
         link = "商品リンク"
         #results = []
         #results << result
         #results << url
          #return result.encode("sjis") + "\r\n" + value.encode("sjis") + "\r\n商品ページ" + url
-         return result.encode("sjis") + "\r\n\r\n" + current.encode("sjis") + value.encode("sjis") + "\r\n\r\n" + link.encode("sjis") + url.encode("sjis")
+         return result.encode("sjis") + "\r\n\r\n" + current.encode("sjis") + value.encode("sjis") + "\r\n\r\n" + link.encode("sjis") + "\r\n" + url.encode("sjis")
          #return result
     end
 
