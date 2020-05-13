@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
     post '/callback' => 'linebot#callback'
-    root 'application#scraping'  
+    #root 'application#scraping'  
 end
