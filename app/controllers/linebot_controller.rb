@@ -76,7 +76,6 @@ class LinebotController < ApplicationController
           end
         end
 
-        setCurrentValue(value)
         #results = []
         #results << result
         #results << url
