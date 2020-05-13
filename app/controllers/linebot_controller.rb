@@ -37,18 +37,20 @@ class LinebotController < ApplicationController
 
       doc = Nokogiri::HTML(open(url, opt))
 
-      result = "a"
+      result = "現在、Amazonからの出品がありません。"
 
         results = []
+        values = []
         doc.xpath('//span[contains(@id, "priceblock_ourprice")]').each do |node|
           #result = node.css('span').inner_text
           value = node.xpath('//span[contains(@class, "a-size-medium a-color-price priceBlockBuyingPriceString")]').text
           results << value
         end
-        #doc.xpath('//div[@class="a-text-center a-spacing-mini"]').each do |node|
-        #  result = node.css('span').inner_text
-        #  results << result
-        #end
+
+        doc.xpath('//div[@class="a-text-center a-spacing-mini"]').each do |node|
+          value = node.css('span').inner_text
+          values << value
+        end
 
 
 
@@ -62,10 +64,23 @@ class LinebotController < ApplicationController
           end
         end
 
+        value = nil
+
+        values.each do |list|
+          if list != nil then
+            if list.include?("￥") then
+              value = list
+              value = result.delete("￥")
+              value = result.delete(",")
+            end
+          end
+        end
+
+        setCurrentValue(value)
         #results = []
         #results << result
         #results << url
-         return result.encode("sjis")
+         return result.encode("sjis") + "\r\n現在の価格" + value.encode("sjis") + "\r\n商品ページ" + url
          #return result
     end
 
@@ -78,7 +93,7 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: scraping() + "\r\n" + scraping()
+            text: scraping()
           }
           client.reply_message(event['replyToken'], message)
         end
