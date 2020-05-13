@@ -66,7 +66,7 @@ class LinebotController < ApplicationController
         results << result
         results << url
          #return result.encode("sjis")
-         return results
+         return result
     end
 
     #events = client.parse_events_from(body)
