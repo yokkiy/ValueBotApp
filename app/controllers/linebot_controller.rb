@@ -37,7 +37,7 @@ class LinebotController < ApplicationController
 
       doc = Nokogiri::HTML(open(url, opt))
 
-      result = nil
+      result = "値がありませんでした。"
 
         results = []
         #doc.xpath('//span[contains(@id, "priceblock_ourprice")]').each do |node|
