@@ -62,11 +62,11 @@ class LinebotController < ApplicationController
         result = result.delete("￥")
         result = result.delete(",")
 
-        results = []
-        results << result
-        results << url
-         #return result.encode("sjis")
-         return result
+        #results = []
+        #results << result
+        #results << url
+         return result.encode("sjis")
+         #return result
     end
 
     #events = client.parse_events_from(body)
