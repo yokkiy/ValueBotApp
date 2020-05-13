@@ -41,7 +41,7 @@ class LinebotController < ApplicationController
 
         results = []
         doc.xpath('//span[contains(@id, "priceblock_ourprice")]').each do |node|
-          result = node.css('span').inner_text
+          #result = node.css('span').inner_text
           result = node.xpath('//span[contains(@class, "a-size-medium a-color-price priceBlockBuyingPriceString")]').text
           results << result
         end
