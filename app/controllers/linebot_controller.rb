@@ -40,9 +40,10 @@ class LinebotController < ApplicationController
       result = nil
 
         results = []
-        #doc.xpath('//div[@class="a-text-center a-spacing-mini"]').each do |node|
+        #doc.xpath('//span[contains(@id, "priceblock_ourprice")]').each do |node|
           #result = node.css('span').inner_text
-          #results << result
+        #  result = node.xpath('//span[contains(@class, "a-size-medium a-color-price priceBlockBuyingPriceString")]').text
+        #  results << result
         #end
         doc.xpath('//div[@class="a-text-center a-spacing-mini"]').each do |node|
           result = node.css('span').inner_text
