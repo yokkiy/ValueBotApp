@@ -37,13 +37,13 @@ class LinebotController < ApplicationController
 
       doc = Nokogiri::HTML(open(url, opt))
 
-      result = "値段が表示されていません。"
+      result = "a"
 
         results = []
         doc.xpath('//span[contains(@id, "priceblock_ourprice")]').each do |node|
           #result = node.css('span').inner_text
-          result = node.xpath('//span[contains(@class, "a-size-medium a-color-price priceBlockBuyingPriceString")]').text
-          results << result
+          value = node.xpath('//span[contains(@class, "a-size-medium a-color-price priceBlockBuyingPriceString")]').text
+          results << value
         end
         #doc.xpath('//div[@class="a-text-center a-spacing-mini"]').each do |node|
         #  result = node.css('span').inner_text
@@ -56,12 +56,11 @@ class LinebotController < ApplicationController
           if list != nil then
             if list.include?("￥") then
               result = list
+              result = result.delete("￥")
+              result = result.delete(",")
             end
           end
         end
-
-        result = result.delete("￥")
-        result = result.delete(",")
 
         #results = []
         #results << result
@@ -79,7 +78,7 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: scraping()
+            text: scraping() + scraping()
           }
           client.reply_message(event['replyToken'], message)
         end
