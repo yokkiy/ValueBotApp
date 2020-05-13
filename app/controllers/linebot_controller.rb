@@ -40,7 +40,10 @@ class LinebotController < ApplicationController
       result = nil
 
         results = []
-
+        #doc.xpath('//div[@class="a-text-center a-spacing-mini"]').each do |node|
+          #result = node.css('span').inner_text
+          #results << result
+        #end
         doc.xpath('//div[@class="a-text-center a-spacing-mini"]').each do |node|
           result = node.css('span').inner_text
           results << result
@@ -59,11 +62,14 @@ class LinebotController < ApplicationController
         result = result.delete("￥")
         result = result.delete(",")
 
-         return result.encode("sjis")
-         sleep(60)
+        results = []
+        results << result
+        results << url
+         #return result.encode("sjis")
+         return results
     end
 
-    events = client.parse_events_from(body)
+    #events = client.parse_events_from(body)
 
     events.each { |event|
       case event
