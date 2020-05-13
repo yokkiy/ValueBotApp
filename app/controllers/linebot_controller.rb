@@ -80,7 +80,8 @@ class LinebotController < ApplicationController
         #results = []
         #results << result
         #results << url
-         return result.encode("sjis") + "\r\n現在の価格" + value.encode("sjis") + "\r\n商品ページ" + url
+         #return result.encode("sjis") + "\r\n" + value.encode("sjis") + "\r\n商品ページ" + url
+         return result.encode("sjis") + "\r\n" + value.encode("sjis")
          #return result
     end
 
