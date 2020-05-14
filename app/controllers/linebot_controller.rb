@@ -92,7 +92,7 @@ class LinebotController < ApplicationController
     #    type: 'text',
     #    text: scraping()
     #  }
-    #response = client.push_message(ENV["LINE_USER_ID"], message)
+    #response = client.push_message("U5767a0b6aac44ac2f9e42e049957f109", message)
     #sleep(60)
     #end
 
@@ -107,7 +107,8 @@ class LinebotController < ApplicationController
             type: 'text',
             text: scraping()
           }
-          client.reply_message(event['replyToken'], message)
+          #client.reply_message(event['replyToken'], message)
+          client.push_message("U5767a0b6aac44ac2f9e42e049957f109", message)
         end
       end
   }
