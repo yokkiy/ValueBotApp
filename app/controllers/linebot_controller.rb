@@ -108,7 +108,8 @@ class LinebotController < ApplicationController
             text: scraping()
           }
           #client.reply_message(event['replyToken'], message)
-          client.push_message("U5767a0b6aac44ac2f9e42e049957f109", message)
+          client.push_message("11960839896975", message)
+          client.push_message("11960834535029", message)
         end
       end
   }
