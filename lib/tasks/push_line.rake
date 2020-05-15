@@ -1,4 +1,11 @@
 namespace :push_line do
+  require 'line/bot'  # gem 'line-bot-api'
+
+    #webに接続するためのライブラリ
+    require "open-uri"
+    #クレイピングに使用するライブラリ
+    require "nokogiri"
+
   def scraping
 
     #クレイピング対象のURL
