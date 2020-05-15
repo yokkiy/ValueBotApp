@@ -76,8 +76,7 @@ class LinebotController < ApplicationController
           end
         end
 
-        current = "現在の価格：
-        "
+        current = "現在の価格："
         link = "商品リンク"
         #results = []
         #results << result

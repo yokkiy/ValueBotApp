@@ -55,14 +55,19 @@ namespace :push_line do
         end
       end
 
-      current = "現在の価格：
-      "
+      current = "現在の価格："
       link = "商品リンク"
+
+      #if !results.empty? then
+        final = result.encode("sjis") + "\r\n\r\n" + current.encode("sjis") + value.encode("sjis") + "\r\n\r\n" + link.encode("sjis") + "\r\n" + url.encode("sjis")
+      #else
+        #final = nil
+      #end
       #results = []
       #results << result
       #results << url
        #return result.encode("sjis") + "\r\n" + value.encode("sjis") + "\r\n商品ページ" + url
-       return result.encode("sjis") + "\r\n\r\n" + current.encode("sjis") + value.encode("sjis") + "\r\n\r\n" + link.encode("sjis") + "\r\n" + url.encode("sjis")
+       return final
        #return result
   end
 
@@ -73,10 +78,24 @@ namespace :push_line do
       text: scraping()
     }
     client = Line::Bot::Client.new { |config|
-      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+      config.channel_secret = "3319af8334b57079583a8a2109a85d58"
+      config.channel_token = "PqxhR3tXmWQJ52KuOnhVWF4Kxi+nkk6SHKvTl/htjHysuJGYfcv7hIa7FKaCTdvZEQBi/1MScj3EAWUjCHGg2gNs5Sgcuis4QmukhLn8jB0o+F71zEa9XVKXB7+e2Ev8EkHfd9UUVNf6BuYiICJjSQdB04t89/1O/w1cDnyilFU="
     }
     response = client.push_message("U5767a0b6aac44ac2f9e42e049957f109", message)
+    p response
+  end
+
+  desc "push_lineB"
+  task push_line_message_amazon: :environment do # 以下にpush機能のタスクを書く。
+    message = {
+      type: 'text',
+      text: scraping()
+    }
+    client = Line::Bot::Client.new { |config|
+      config.channel_secret = "3319af8334b57079583a8a2109a85d58"
+      config.channel_token = "PqxhR3tXmWQJ52KuOnhVWF4Kxi+nkk6SHKvTl/htjHysuJGYfcv7hIa7FKaCTdvZEQBi/1MScj3EAWUjCHGg2gNs5Sgcuis4QmukhLn8jB0o+F71zEa9XVKXB7+e2Ev8EkHfd9UUVNf6BuYiICJjSQdB04t89/1O/w1cDnyilFU="
+    }
+    response = client.push_message("Uf31ad9dd1052998a23d51d4117ca7d18", message)
     p response
   end
 end
