@@ -55,6 +55,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'line-bot-api'
 
+gem 'whenever', require: false
+
 # 開発・テスト環境ではSQLite3を使う
 group :development, :test do
   gem 'sqlite3'
