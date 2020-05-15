@@ -30,7 +30,7 @@ class LinebotController < ApplicationController
     def scraping
 
       #クレイピング対象のURL
-      url = "https://www.amazon.co.jp/%E4%BB%BB%E5%A4%A9%E5%A0%82-%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%95%E3%82%A3%E3%83%83%E3%83%88-%E3%82%A2%E3%83%89%E3%83%99%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC-Switch/dp/B07XV8VSZT/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%95%E3%82%A3%E3%83%83%E3%83%88%E3%82%A2%E3%83%89%E3%83%99%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC&qid=1588166354&s=videogames&sr=1-1"
+      url = "https://www.amazon.co.jp/%E4%BB%BB%E5%A4%A9%E5%A0%82-%E6%98%9F%E3%81%AE%E3%82%AB%E3%83%BC%E3%83%93%E3%82%A3-%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%BA-Switch/dp/B078Y35VK4?pf_rd_r=H89BSZVT52KT9823EBB2&pf_rd_p=2b46ae95-02b2-47c7-99a0-4fae5fa95d48&pd_rd_r=773ef653-8700-4a41-8918-e3e6683064bf&pd_rd_w=Vhljk&pd_rd_wg=ITOQ7&ref_=pd_gw_ci_mcx_mr_hp_d"
 
       opt = {}
       opt['User-Agent'] = 'Opera/9.80 (Windows NT 5.1; U; ja) Presto/2.7.62 Version/11.01 '
@@ -64,6 +64,10 @@ class LinebotController < ApplicationController
           end
         end
 
+
+        link = "商品リンク"
+
+      if !values.empty? then
         value = nil
 
         values.each do |list|
@@ -75,15 +79,17 @@ class LinebotController < ApplicationController
             end
           end
         end
-
         current = "現在の価格："
-        link = "商品リンク"
-        #results = []
-        #results << result
-        #results << url
-         #return result.encode("sjis") + "\r\n" + value.encode("sjis") + "\r\n商品ページ" + url
-         return result.encode("sjis") + "\r\n\r\n" + current.encode("sjis") + value.encode("sjis") + "\r\n\r\n" + link.encode("sjis") + "\r\n" + url.encode("sjis")
-         #return result
+        final = result.encode("sjis") + "\r\n\r\n" + current.encode("sjis") + value.encode("sjis") + "\r\n\r\n" + link.encode("sjis") + "\r\n" + url.encode("sjis")
+
+      else
+        sale = "Amazonから出品されました："
+        final = sale.encode("sjis") + result.encode("sjis") + "\r\n\r\n" + link.encode("sjis") + "\r\n" + url.encode("sjis")
+
+      end
+
+         return final
+         
     end
 
     #while true do
