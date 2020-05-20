@@ -31,7 +31,7 @@ class LinebotController < ApplicationController
 
       #クレイピング対象のURL
       url = "https://www.amazon.co.jp/%E4%BB%BB%E5%A4%A9%E5%A0%82-%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%95%E3%82%A3%E3%83%83%E3%83%88-%E3%82%A2%E3%83%89%E3%83%99%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC-Switch/dp/B07XV8VSZT?pf_rd_r=H89BSZVT52KT9823EBB2&pf_rd_p=2b46ae95-02b2-47c7-99a0-4fae5fa95d48&pd_rd_r=773ef653-8700-4a41-8918-e3e6683064bf&pd_rd_w=Vhljk&pd_rd_wg=ITOQ7&ref_=pd_gw_ci_mcx_mr_hp_d"
-      url = "https://www.amazon.co.jp/%E3%83%A6%E3%83%BC%E3%83%93%E3%83%BC%E3%82%A2%E3%82%A4-%E3%82%BD%E3%83%95%E3%83%88-%E3%82%B8%E3%83%A3%E3%82%B9%E3%83%88%E3%83%80%E3%83%B3%E3%82%B92020-Switch/dp/B083QTPPPG/ref=pd_aw_sbs_63_11?_encoding=UTF8&pd_rd_i=B083QTPPPG&pd_rd_r=9309e994-b205-4ba4-85dd-acd0779711bf&pd_rd_w=9AZP4&pd_rd_wg=DkgN8&pf_rd_p=bff3a3a6-0f6e-4187-bd60-25e75d4c1c8f&pf_rd_r=ND3RQSRBMB7JNPHW4VC8&psc=1&refRID=ND3RQSRBMB7JNPHW4VC8"
+      #url = "https://www.amazon.co.jp/%E3%83%A6%E3%83%BC%E3%83%93%E3%83%BC%E3%82%A2%E3%82%A4-%E3%82%BD%E3%83%95%E3%83%88-%E3%82%B8%E3%83%A3%E3%82%B9%E3%83%88%E3%83%80%E3%83%B3%E3%82%B92020-Switch/dp/B083QTPPPG/ref=pd_aw_sbs_63_11?_encoding=UTF8&pd_rd_i=B083QTPPPG&pd_rd_r=9309e994-b205-4ba4-85dd-acd0779711bf&pd_rd_w=9AZP4&pd_rd_wg=DkgN8&pf_rd_p=bff3a3a6-0f6e-4187-bd60-25e75d4c1c8f&pf_rd_r=ND3RQSRBMB7JNPHW4VC8&psc=1&refRID=ND3RQSRBMB7JNPHW4VC8"
       opt = {}
       #opt['User-Agent'] = 'Opera/9.80 (Windows NT 5.1; U; ja) Presto/2.7.62 Version/11.01 '
 
